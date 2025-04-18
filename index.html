@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Sorry Vanshika 💔</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #ffe6e6, #ffcccc);
+      overflow: hidden;
+    }
+
+    .slide {
+      display: none;
+      height: 100vh;
+      width: 100vw;
+      text-align: center;
+      padding: 40px 20px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      transition: opacity 0.5s ease-in-out;
+    }
+
+    .slide.active {
+      display: flex;
+    }
+
+    h1 {
+      font-size: 2.5em;
+      color: #cc0000;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 1.4em;
+      max-width: 90%;
+      color: #333;
+    }
+
+    button {
+      margin-top: 30px;
+      padding: 12px 28px;
+      font-size: 1em;
+      background-color: #ff4d4d;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background-color: #e60000;
+    }
+
+    .heart {
+      font-size: 3em;
+      animation: beat 1s infinite;
+      margin-bottom: 20px;
+    }
+
+    @keyframes beat {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.3); }
+    }
+
+    .flower {
+      position: absolute;
+      top: -50px;
+      font-size: 24px;
+      animation: fall 10s linear infinite;
+      pointer-events: none;
+    }
+
+    @keyframes fall {
+      to {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 2em;
+      }
+
+      p {
+        font-size: 1.1em;
+      }
+
+      .heart {
+        font-size: 2.5em;
+      }
+
+      button {
+        padding: 10px 22px;
+        font-size: 0.95em;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Falling flowers -->
+  <script>
+    function createFlower() {
+      const flower = document.createElement("div");
+      flower.classList.add("flower");
+      flower.innerText = "🌸";
+      flower.style.left = Math.random() * 100 + "vw";
+      flower.style.animationDuration = (5 + Math.random() * 5) + "s";
+      document.body.appendChild(flower);
+      setTimeout(() => flower.remove(), 10000);
+    }
+
+    setInterval(createFlower, 500);
+  </script>
+
+  <!-- Slides -->
+  <div class="slide active" id="slide1">
+    <div class="heart">❤️</div>
+    <h1>Hi Vanshika...</h1>
+    <p>I just want a moment of your time...</p>
+    <button onclick="nextSlide()">Next</button>
+  </div>
+
+  <div class="slide" id="slide2">
+    <h1>I'm Sorry</h1>
+    <p>I know I made a mistake, and it hurt you. That was never what I wanted.</p>
+    <button onclick="nextSlide()">Next</button>
+  </div>
+
+  <div class="slide" id="slide3">
+    <h1>You Mean the World to Me</h1>
+    <p>Your smile, your kindness, your presence... they make everything better.</p>
+    <button onclick="nextSlide()">Next</button>
+  </div>
+
+  <div class="slide" id="slide4">
+    <h1>I Regret Hurting You</h1>
+    <p>If I could go back and fix it, I would — a thousand times over.</p>
+    <button onclick="nextSlide()">Next</button>
+  </div>
+
+  <div class="slide" id="slide5">
+    <h1>Can We Talk? 💗</h1>
+    <p>All I ask is a chance to talk and make things right. I miss you, Vanshika.</p>
+    <button onclick="showMessage()">💬 Yes, let's talk</button>
+  </div>
+
+  <script>
+    let current = 1;
+
+    function nextSlide() {
+      document.getElementById(`slide${current}`).classList.remove("active");
+      current++;
+      document.getElementById(`slide${current}`).classList.add("active");
+    }
+
+    function showMessage() {
+      alert("🌸 Thank you, Vanshika. I promise to do better, always. 💕");
+    }
+  </script>
+
+</body>
+</html>
